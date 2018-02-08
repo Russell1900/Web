@@ -1,0 +1,25 @@
+#MarkTable{
+    border:1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+.MarkTableTr{
+    border:1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+.MarkTableCol{
+    border:1px solid black;
+    border-collapse: collapse;
+}
+#MarkRefCol{
+    width:2%;
+}
+#MarkInfoCol{
+    width: 98%;
+}
+#MarkDelButtonCol{
+}
+.MarkTextInput{
+    width:100%;
+}

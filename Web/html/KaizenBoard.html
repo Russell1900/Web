@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>Kaizen</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/KaizenBoard.css">
+    <script src="../JS/jquery-3.2.1.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script src="../JS/GembaBoard.js"></script>
+    <script src="../JS/KaizenBoard.js"></script>
+    <link rel="stylesheet" href="../CSS/Common.css" type="text/css" media="screen" charset="utf-8" />
+    <script src="../JS/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS/global.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS/modal.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        $(document).ready(function(){
+            $("#SubmitButton").click(function(){
+                addTaskRow();
+            });
+            $(document).ready(function(){
+                $("#myInput").keyup(function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#mainbody tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="header">
+    <div class="col w5 bottomlast">
+        <a href="" class="logo">
+            <img src="../PIC/honwell.png" alt="Logo" />
+        </a>
+    </div>
+    <div class="col w5 last right bottomlast">
+        <p class="last"><span class="strong">5 </span> persons online now </p>
+        <p class="last">Logged in as <span class="strong">Admin,</span> <a href="Login.html">Logout</a></p>
+    </div>
+    <div class="clear"></div>
+</div>
+<div id="wrapper">
+    <div id="minwidth">
+        <div id="holder">
+            <div id="menu">
+                <div id="left"></div>
+                <div id="right"></div>
+                <ul>
+                    <li>
+                        <a href="OverView.html"><span>Over View</span></a>
+                    </li>
+                    <li>
+                        <a href="TaskBoard.html"><span>Task Board</span></a>
+                    </li>
+                    <li>
+                        <a href="chart.html"><span>Chart</span></a>
+                    </li>
+                    <li>
+                        <a href="KaizenBoard.html" class="selected"><span>Kaizen</span></a>
+                    </li>
+                    <li>
+                        <a href="GembaBoard.html"><span>GEMBA</span></a>
+                    </li>
+                    <li>
+                        <a href="OwnerManage.html"><span>Owner setting</span></a>
+                    </li>
+                    <li>
+                        <a href="IssueLog.html"><span>Issue log</span></a>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div id="submenu">
+                <div class="modules_left">
+                    <div class="module buttons">
+                        <a href="" class="dropdown_button"><small class="icon clipboard"></small><span>Table of Contents</span></a>
+                        <div class="dropdown help_index">
+                            <div class="arrow"></div>
+                            <div class="content"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="title">
+                    <a href="https://hostools.honeywell.com/CORP/HTS-C%20Aero%20SVV/SitePages/Kaizen/Home.aspx#/"><span>Kaizen Systerm</span></a>
+                </div>
+                <div class="modules_right">
+                </div>
+            </div>
+            <div id="desc">
+                <div class="body">
+                    <div id="messages"></div>
+                    <div class="clear"></div>
+                    <div id="html" class="help">
+                        <h1>Kaizen:<input id="myInput" type="text" placeholder="Search.." style="position:absolute;right:10px;"></h1>
+                        <div id="LeftDiv" style="min-height: 400px">
+                        <!--insert the body table-->
+                            <table id="rounded-corner">
+                                <thead>
+                                <tr>
+                                    <th width="1%">No.</th>
+                                    <th>Proposer</th>
+                                    <th>Date</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Kaizen Type</th>
+                                    <th>Post Kaizen</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="12">Don't forget to update status before TAM.</td>
+                                </tr>
+                                </tfoot>
+                                <tbody id="mainbody">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Ye, Ziduo</td>
+                                    <td>12/04/2017</td>
+                                    <td>Tool update</td>
+                                    <td>This tool was updated for ......</td>
+                                    <td>Cost</td>
+                                    <td>Process</td>
+                                    <td><button><span class="glyphicon glyphicon-upload" style="color:darkorange;"></span></button></td>
+                                    <td><button><span class="glyphicon glyphicon-pencil" style="color:darkgreen;"></span></button></td>
+                                    <td><button><span class="glyphicon glyphicon-trash" style="color:darkred;"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Yan, Jiwei</td>
+                                    <td>10/21/2017</td>
+                                    <td>Online Tam</td>
+                                    <td>Tam meeting could host in online, this way...</td>
+                                    <td>Qulity</td>
+                                    <td>Automation</td>
+                                    <td><button><span class="glyphicon glyphicon-upload" style="color:darkorange;"></span></button></td>
+                                    <td><button><span class="glyphicon glyphicon-pencil" style="color:darkgreen;"></span></button></td>
+                                    <td><button><span class="glyphicon glyphicon-trash" style="color:darkred;"></span></button></td>
+                                </tr>
+
+                                <tr>
+                                    <td id="content3"></td>
+                                    <td id="content5"></td>
+                                    <td id="content2"></td>
+                                    <td id="content1"></td>
+                                    <td id="content4"></td>
+                                    <td id="content"></td>
+                                    <td id="content"></td>
+                                    <td><button><span class="glyphicon glyphicon-upload" style="color:darkorange;"></span></button></td>
+                                    <td><button><span class="glyphicon glyphicon-pencil" style="color:darkgreen;"></span></button></td>
+                                    <td><button><span class="glyphicon glyphicon-trash" style="color:darkred;"></span></button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div id="tab1" class="tabcontent">
+                                <h3>Kaizen Page</h3>
+                                <div class="form">
+
+                                    <div class="form_row">
+                                        <label>Proposer:</label>
+                                        <input id="Owner" type="text" class="form_input" name="" />
+                                    </div>
+
+                                    <div class="form_row">
+                                        <label>Kaizen Date:</label>
+                                        <input id="UDate" type="date" class="form_input" name="" />
+                                    </div>
+
+                                    <div class="form_row">
+                                        <label>Title:</label>
+                                        <textarea id="Title" class="form_textarea" name="" rows="1" cols="48"></textarea>
+                                    </div>
+
+                                    <div class="form_row">
+                                        <label>Description:</label>
+                                        <textarea id="Description" class="form_textarea" name="" rows="3" cols="48"></textarea>
+                                    </div>
+
+                                    <div class="form_row">
+                                        <label>Category:</label>
+                                        <select id="TL_1" class="form_select" name="">
+                                            <option>HSE</option>
+                                            <option>Delivery</option>
+                                            <option>Inventory</option>
+                                            <option>Cost</option>
+                                            <option>Productivity</option>
+                                            <option>5S</option>
+                                            <option>Growth</option>
+                                            <option>Compliance</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form_row">
+                                        <label>Kaizen Type:</label>
+                                        <select id="TL_1" class="form_select" name="">
+                                            <option>Process</option>
+                                            <option>Operation</option>
+                                            <option>Re-use</option>
+                                            <option>Automation</option>
+                                            <option>Others</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form_row">
+                                        <!--<input type="submit" class="form_submit" value="Submit" />-->
+                                        <button><span class="btn btn-primary" role="button" style="color: yellow">Submits</span></button>
+                                        <!--<input type="submit" class="form_submitmail" value="Submit" />-->
+                                        <button><span class="btn btn-primary" role="button" style="color: yellow">Reset</span></button>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <!--insert the body table end-->
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div id="body_footer">
+                    <div id="bottom_left"><div id="bottom_right"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <p class="last">Copyright 2009 - Gray Admin Template - Created by <a href="">Passatgt</a></p>
+</div>
+</body>
+</html>

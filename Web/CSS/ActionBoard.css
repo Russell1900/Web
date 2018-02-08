@@ -1,0 +1,8 @@
+tr.Selected{
+    border:2px solid red;
+}
+
+#ActionTitle{
+    resize: none;
+    width: 300px;
+}

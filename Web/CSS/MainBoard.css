@@ -1,0 +1,98 @@
+html{
+	height: 100%;
+}
+body{
+	height: 100%;
+}
+h1{
+	text-align:center;
+	height:5%;
+}
+select{
+	padding: 0px;
+	margin: 0px;
+	width:100%;
+}
+#TopDiv{
+	height:2.5%;
+}
+#MidDiv{
+	width: 100%;
+	height:70%;
+}
+#LeftDiv{
+	width:60%;
+	float:left;
+	height:100%;
+}
+#TaskTopTable{
+	width:100%;
+	height:4.5%;
+}
+.InnerTable{
+	border:1px solid black;
+	border-collapse: collapse;
+}
+iframe{
+	padding: 0;
+	margin: 0;
+}
+#LeftTalbeDiv{
+	width: 100%;
+	height:95.5%;
+	overflow: auto;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+#RightTopDiv{
+	float:right;
+	width:40%;
+	height: 50%;
+}
+#ActionTopTable{
+	width: 100%;
+	height:9%;
+}
+#RightTopTableDiv{
+	width: 100%;
+	height: 91%;
+	overflow: auto;
+	border-collapse: collapse;
+	border:1px solid black;
+}
+#RightBottomDiv{
+	float:right;
+	width:40%;
+	height: 50%;
+}
+#AndoTopTable{
+	width: 100%;
+	height:9%;
+}
+#RightBottomTableDiv{
+	width:100%;
+	height:91%;
+	overflow: auto;
+	border:1px solid black;
+	border-collapse: collapse;
+}
+#BottomDiv{
+	height:17.5%;
+}
+#MarkTopTable{
+	height:18%;
+}
+#BottomTableDiv{
+	width:100%;
+	height:82%;
+	overflow: auto;
+	border:1px solid black;
+	border-collapse: collapse;
+}
+#StatusBar{
+	width:100%;
+	height:3.5%;
+}
+.TableRefTd{
+	text-align: center;
+}

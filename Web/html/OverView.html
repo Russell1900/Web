@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>OTS</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/ActionBoard.css">
+    <script src="../JS/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS/OverView.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="../CSS/Common.css" type="text/css" media="screen" charset="utf-8" />
+    <script src="../JS/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS/global.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS/modal.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body onload="displayAllOverView()">
+<div id="header">
+    <div class="col w5 bottomlast">
+        <a href="" class="logo">
+            <img src="../PIC/honwell.png" alt="Logo" />
+        </a>
+    </div>
+    <div class="col w5 last right bottomlast">
+        <p class="last"><span class="strong">5 </span> persons online now </p>
+        <p class="last">Logged in as <span class="strong">Admin,</span> <a href="Login.html">Logout</a></p>
+    </div>
+    <div class="clear"></div>
+</div>
+<div id="wrapper">
+    <div id="minwidth">
+        <div id="holder">
+            <div id="menu">
+                <div id="left"></div>
+                <div id="right"></div>
+                <ul>
+                    <li>
+                        <a href="OverView.html" class="selected"><span>Over View</span></a>
+                    </li>
+                    <li>
+                        <a href="TaskBoard.html"><span>Task Board</span></a>
+                    </li>
+                    <li>
+                        <a href="chart.html"><span>Chart</span></a>
+                    </li>
+                    <li>
+                        <a href="KaizenBoard.html"><span>Kaizen</span></a>
+                    </li>
+                    <li>
+                        <a href="GembaBoard.html"><span>GEMBA</span></a>
+                    </li>
+                    <li>
+                        <a href="OwnerManage.html"><span>Owner setting</span></a>
+                    </li>
+                    <li>
+                        <a href="IssueLog.html"><span>Issue log</span></a>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div id="submenu">
+                <div class="modules_left">
+                    <div class="module buttons">
+
+                    </div>
+                </div>
+                <div class="title">
+                    TAM sys
+                </div>
+                <div class="modules_right">
+                </div>
+            </div>
+            <div id="desc">
+                <div class="body">
+                    <div id="messages"></div>
+                    <div class="clear"></div>
+                    <div id="html" class="help">
+                        <h1>Weekly Over View:</h1>
+                        <div class="col w10 last">
+                            <div class="content">
+                                <div id="UserOverview" style="width: 30%; float:left; border-right: 2px ridge beige;min-height: 400px; border-collapse: collapse">
+                                    <h3>Task Status:</h3>
+                                    <div style="width:20%;float:left;">
+                                        Ye Ziduo
+                                    </div>
+                                    <div style="width:70%; float:left">
+                                        <div class="progress"  style="width:100%">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
+                                                Done
+                                            </div>
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">
+                                                Issue
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width:70%; float:left;border-left: 2px ridge beige;min-height: 400px; border-collapse: collapse">
+                                    <table id="ActionTable">
+                                        <colgroup>
+                                            <col style="width:65%">
+                                            <col style="width:10%">
+                                            <col style="width:15%">
+                                            <col style="width:5%">
+                                            <col style="width:5%">
+                                        </colgroup>
+                                        <tr>
+                                            <th>Action</th><th>Owner</th><th>Target Date</th><th>PDCA</th>
+                                            <th><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">+</button></th>
+                                        </tr>
+                                    </table>
+                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div style="border: 2px solid red">
+                                        <div>
+                                            <label  style="display: block">Action Title:</label>
+                                            <textarea id="ActionTitle" rows="3"></textarea>
+                                        </div>
+                                        <div>
+                                            <label  style="display: block">Owner Eid:</label>
+                                            <input id="ActionOwner" type="text" list="OverviewUsersDataList">
+                                            <datalist id="OverviewUsersDataList">
+                                            </datalist>
+                                        </div>
+                                        <div>
+                                            <label  style="display: block">Target Date:</label>
+                                            <input id="ActionDate" type="date">
+                                        </div>
+                                        <div>
+                                            <label  style="display: block">PDCA</label>
+                                            <select id="ActionPDCA">
+                                                <option>Plan</option><option>Do</option><option>Check</option><option>Action</option><option>Done</option><option>Deleted</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <button id="ActionSubmit" class="SubActionGroup" style="display: none" onclick="submitAction()">Submit</button>
+                                            <button id="ActionCancel" class="SubActionGroup" style="display: none" onclick="cancelEditAction()">Cancel</button>
+                                        </div>
+                                        <div>
+                                            <button id="ActionAdd" class="AddActionGroup" onclick="addAction()">Add</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div id="body_footer">
+                    <div id="bottom_left"><div id="bottom_right"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <p class="last"> Created by <a href="">SVV1</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Online TAM</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../CSS/Login.css">
+    <script src="../JS/jquery-3.2.1.min.js"></script>
+    <script src="../JS/Login.js"></script>
+
+</head>
+<body> <!-- onload="loadUserData()"-->
+    <div>
+        <input id="UserEidIn" type="text">
+        <button onclick="setUserEid()">Submit</button>
+    </div>
+    <div id="OutDiv">
+        <div id="LeftDiv">
+            <span id="LeftSpan" class="list-group-item">Type</span>
+            <div id="LeftList" class="list-group">
+            </div>
+        </div>
+        <div id="RightDiv">
+            <span id="RightSpan" class="list-group-item">TAM</span>
+            <div id="RightList" class="list-group">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

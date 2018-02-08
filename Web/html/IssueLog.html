@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>OTS</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/TaskBoard.css">
+    <script src="../JS/jquery-3.2.1.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../JS/TaskBoard.js"></script>
+    <link rel="stylesheet" href="../CSS/Common.css" type="text/css" media="screen" charset="utf-8" />
+    <script src="../JS/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS/global.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS/modal.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").keyup(function() {
+                var value = $(this).val().toLowerCase();
+                $("#mainbody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+</head>
+<body onload="displayAllTASK()">
+<div id="header">
+    <div class="col w5 bottomlast">
+        <a href="" class="logo">
+            <img src="../PIC/honwell.png" alt="Logo" />
+        </a>
+    </div>
+    <div class="col w5 last right bottomlast">
+        <p class="last"><span class="strong">5 </span> persons online now </p>
+        <p class="last">Logged in as <span class="strong">Admin,</span> <a href="Login.html">Logout</a></p>
+    </div>
+    <div class="clear"></div>
+</div>
+<div id="wrapper">
+    <div id="minwidth">
+        <div id="holder">
+            <div id="menu">
+                <div id="left"></div>
+                <div id="right"></div>
+                <ul>
+                    <li>
+                        <a href="OverView.html"><span>Over View</span></a>
+                    </li>
+                    <li>
+                        <a href="TaskBoard.html"><span>Task Board</span></a>
+                    </li>
+                    <li>
+                        <a href="chart.html"><span>Chart</span></a>
+                    </li>
+                    <li>
+                        <a href="KaizenBoard.html"><span>Kaizen</span></a>
+                    </li>
+                    <li>
+                        <a href="GembaBoard.html"><span>GEMBA</span></a>
+                    </li>
+                    <li>
+                        <a href="OwnerManage.html"><span>Owner setting</span></a>
+                    </li>
+					<li>
+                        <a href="IssueLog.html" class="selected"><span>Issue log</span></a>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div id="submenu">
+                <div class="modules_left">
+                    <div class="module buttons">
+
+                    </div>
+                </div>
+                <div class="title">
+                    TAM sys
+                </div>
+                <div class="modules_right">
+                </div>
+            </div>
+            <div id="desc">
+                <div class="body">
+                    <div id="messages"></div>
+                    <div class="clear"></div>
+                    <div id="html" class="help">
+                        <h1>Issue View:<input id="myInput" type="text" placeholder="Search.." style="position:absolute;right:10px;"></h1>
+                        <div id="LeftDiv" style="min-height: 400px">
+                        <!--insert the body table-->
+                            <table id="rounded-corner">
+                                <thead>
+                                <tr>
+                                    <th>Product Line</th>
+                                    <th>Task Issue</th>
+                                    <th>Due Date</th>
+                                    <th>Status</th>
+                                    <th>Owner</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="12">Don't forget to update status before TAM.</td>
+                                </tr>
+                                </tfoot>
+                                <tbody id="mainbody">
+
+                                </tbody>
+                            </table>
+
+                            <div id="tab1" class="tabcontent">
+                                <h3>Task Issue</h3>
+                                <div class="form">
+
+                                    <div class="form_row">
+                                        <label>Owner:</label>
+                                        <input id="Owner" type="text" class="form_input" name="" />
+                                    </div>
+
+                                        <div class="form_row">
+                                            <label>Due Date:</label>
+                                            <input style="width:400px" id="UDate" type="date" class="form_input" name="" />
+                                        </div>
+
+                                        <div class="form_row">
+                                            <label>Product Line:</label>
+                                            <select id="PL" class="form_select" name="">
+                                                <option value="1">E2</option>
+                                                <option value="6">PV10</option>
+                                                <option value="4">G650</option>
+                                                <option value="5">B777</option>
+                                            </select>
+                                        </div>
+
+                                    <div class="form_row">
+                                        <label>Status:</label>
+                                        <select id="Status" class="form_select" name="">
+                                            <option>Assigned</option>
+                                            <option>Doing</option>
+                                            <option>Done</option>
+                                            <option>Pending</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form_row">
+                                        <label>Task issues:</label>
+                                        <textarea id="issues" class="form_textarea" name=""></textarea>
+                                    </div>
+
+                                        <div class="form_row Add_SubTaskGroup">
+                                            <!--<input type="submit" class="form_submit" value="Submit" />-->
+                                        <!-- <input id="AddTaskInfo" type="button" onclick="addTask()" value="Add">-->
+                                        <button id="AddTaskInfo" onclick="addTask()">Add In List</button>
+                                    </div>
+                                    <div class="form_row Add_SubTaskGroup" style="display: none">
+                                        <span><button id="SubmitButton" onclick="submitTask()">Submit</button></span>
+                                        <span><button id="cancelTaskInfo" onclick="cancelEditTask()">Cancel</button></span>
+                                    </div>
+                                    <div class="clear"></div>
+
+                                </div>
+                            </div>
+                            <!--insert the body table end-->
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div id="body_footer">
+                    <div id="bottom_left"><div id="bottom_right"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <p class="last"> Created by <a href="">SVV1</a></p>
+</div>
+</body>
+</html>

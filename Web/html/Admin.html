@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>OTS</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/TaskBoard.css">
+    <link rel="stylesheet" href="../CSS/style_l.css">
+        <link rel="stylesheet" href="../CSS/Common.css">
+    <link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
+    <script src="../JS/jquery-3.2.1.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../JS/Admin.js"></script>
+    <script src="../JS/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS/global.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS/modal.js" type="text/javascript" charset="utf-8"></script>
+    <!-- core js files -->
+    <script src="../asset/js/bootstrap.min.js"></script>
+    <!-- core js files -->
+
+    <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
+
+    <script src="../asset/js/plugins/bootstrap-datepicker.js"></script>
+
+    <script src="../asset/js/plugins/bootstrap3-typeahead.min.js"></script>
+
+    <link rel="stylesheet" href="../asset/css/plugins/files/bootstrap-checkbox.css">
+    <script src="../asset/js/plugins/bootstrap-checkbox.js"></script>
+</head>
+<body onload="displayAll()">
+<div id="header">
+    <div class="col w5 bottomlast">
+        <a href="" class="logo">
+            <img src="../PIC/honwell.png" alt="Logo" />
+        </a>
+    </div>
+    <div class="col w5 last right bottomlast">
+        <p class="last">Logged in as <span class="strong">Admin,</span> <a href="Admin_login.html">Logout</a></p>
+    </div>
+    <div class="clear"></div>
+</div>
+<div id="wrapper">
+    <div id="minwidth">
+        <div id="holder">
+            <div id="menu">
+                <div id="left"></div>
+                <div id="right"></div>
+                <ul>
+					<li>
+                        <a href="" class="selected"><span>Admin Setting</span></a>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div id="submenu">
+                <div class="modules_left">
+                    <div class="module buttons">
+                        <div class="dropdown help_index">
+                            <div class="arrow"></div>
+                            <div class="content">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="title">
+                </div>
+                <div class="modules_right">
+                </div>
+            </div>
+            <div id="desc">
+                <div class="body">
+                    <div id="messages"></div>
+                    <div class="clear"></div>
+                    <div id="html" class="help">
+                        <h1>TAM View:</h1>
+                        <div id="LeftDiv" style="min-height: 400px">
+                        <!--insert the body table-->
+                            <table id="rounded-corner">
+                                <thead>
+                                <tr>
+                                    <th>Team</th>
+                                    <th>TAM</th>
+                                    <th>Owner EID</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="12">Can't change by other one except admin.</td>
+                                </tr>
+                                </tfoot>
+                                <tbody id="mainbody">
+
+                                </tbody>
+                            </table>
+
+                            <div id="tab1" class="tabcontent">
+                                <h3>Add TAM</h3>
+                                <div class="form">
+
+                                    <div class="form_row">
+                                        <label>Owner EID:</label>
+                                        <input id="Owner" type="text" class="form_input" name="" list="AllUsersDataList"/>
+                                        <datalist id="AllUsersDataList">
+                                        </datalist>
+                                    </div>
+
+                                    <div class="form_row">
+                                        <label>TAM Type:</label>
+                                        <select id="TamType" class="form_select" name="">
+                                            <option>TAM1</option>
+                                            <option>TAM2</option>
+                                            <option>TAM3</option>
+                                            <option>TAM4</option>
+											<option>TAM5</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form_row">
+                                        <label>TAM Name:</label>
+                                        <input id="TamName" type="text" class="form_input" name="" />
+                                    </div>
+                                    <div>
+                                        <div class="form_row AddTamGroup">
+                                            <!--<input type="submit" class="form_submit" value="Submit" />-->
+                                            <button id="addAdminInfo" onclick="addTam()">Add</button>
+                                        </div>
+                                        <div class="form_row SubTamGroup" style="display: none">
+                                            <span><button id="submitAdminInfo" onclick="submitTam()">Submit</button></span>
+                                            <span><button id="cancelAdminInfo" onclick="cancelEditTam()">Cancel</button></span>
+                                        </div>
+                                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                                            Add User
+                                        </button>
+                                    </div>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        <h4 class="modal-title" id="myModalLabel">Add User</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form_row">
+                                                            <label>User EID:</label>
+                                                            <input id="UEID" type="text" class="form_input" name="" />
+                                                        </div>
+
+                                                        <div class="form_row">
+                                                            <label>User Name:</label>
+                                                            <input id="UName" type="text" class="form_input" name="" />
+                                                        </div>
+
+                                                        <div class="form_row">
+                                                            <label>User Email:</label>
+                                                            <input id="UEmail" type="text" class="form_input" name="" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                                        <button type="button" class="btn btn-primary" onclick="addUser()">Save User</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <!--insert the body table end-->
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div id="body_footer">
+                    <div id="bottom_left"><div id="bottom_right"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <p class="last">Created by SVV1 <a href="">Aero</a></p>
+</div>
+</body>
+</html>

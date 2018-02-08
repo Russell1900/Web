@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>OTS</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/TaskBoard.css">
+    <script src="../JS/jquery-3.2.1.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../CSS/Common.css" type="text/css" media="screen" charset="utf-8" />
+    <script src="../JS/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS/global.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS/modal.js" type="text/javascript" charset="utf-8"></script>
+
+    <link href="../asset/chart/bootstrap.css" rel="stylesheet" />
+    <link href="../asset/chart/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="../asset/chart/morris.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="../asset/chart/chart-showcase.css" type="text/css" media="screen" />
+
+
+    <script>
+        $(document).ready(function(){
+            $("#SubmitButton").click(function(){
+                addTaskRow();
+            });
+            $(document).ready(function(){
+                $("#myInput").keyup(function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#mainbody tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="header">
+    <div class="col w5 bottomlast">
+        <a href="" class="logo">
+            <img src="../PIC/honwell.png" alt="Logo" />
+        </a>
+    </div>
+    <div class="col w5 last right bottomlast">
+        <p class="last"><span class="strong">5 </span> persons online now </p>
+        <p class="last">Logged in as <span class="strong">Admin,</span> <a href="Login.html">Logout</a></p>
+    </div>
+    <div class="clear"></div>
+</div>
+<div id="wrapper">
+    <div id="minwidth">
+        <div id="holder">
+            <div id="menu">
+                <div id="left"></div>
+                <div id="right"></div>
+                <ul>
+                    <li>
+                        <a href="OverView.html"><span>Over View</span></a>
+                    </li>
+                    <li>
+                        <a href="TaskBoard.html"><span>Task Board</span></a>
+                    </li>
+                    <li>
+                        <a href="chart.html" class="selected"><span>Chart</span></a>
+                    </li>
+                    <li>
+                        <a href="KaizenBoard.html"><span>Kaizen</span></a>
+                    </li>
+                    <li>
+                        <a href="GembaBoard.html"><span>GEMBA</span></a>
+                    </li>
+                    <li>
+                        <a href="OwnerManage.html"><span>Owner setting</span></a>
+                    </li>
+                    <li>
+                        <a href="IssueLog.html"><span>Issue log</span></a>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div id="submenu">
+                <div class="modules_left">
+                    <div class="module buttons">
+
+                    </div>
+                </div>
+                <div class="title">
+                    TAM sys
+                </div>
+                <div class="modules_right">
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div id="pad-wrapper">
+                    <!-- morris stacked chart -->
+                    <div class="row-fluid">
+                        <h4 class="title">Schedule Performance Index</h4>
+                        <div class="span12">
+                            <h5>rate of progress</h5>
+                            <br />
+                            <div id="hero-area" style="height: 250px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- morris graph chart -->
+                    <div class="row-fluid section">
+                            <h4 class="title">Cost Performance Index <small> Monthly growth</small></h4>
+                        <div class="span12 chart">
+                            <div id="hero-graph" style="height: 230px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- jQuery flot chart -->
+                    <div class="row-fluid section">
+                        <h4 class="title">
+                            Hours Performance Index <small> Monthly growth</small>
+                            <div class="btn-group pull-right">
+                                <button class="glow left">DAY</button>
+                                <button class="glow middle active">MONTH</button>
+                                <button class="glow right">YEAR</button>
+                            </div>
+                        </h4>
+                        <div class="span12">
+                            <div id="statsChart"></div>
+                        </div>
+                    </div>
+
+                    <!-- morris bar & donut charts -->
+                    <div class="row-fluid section">
+                        <h4 class="title">
+                            HTCPI.js
+                        </h4>
+                        <div class="span6 chart">
+                            <h5>Attendance rate</h5>
+                            <div id="hero-bar" style="height: 250px;"></div>
+                        </div>
+                        <div class="span5 chart">
+                            <h5>Total EV</h5>
+                            <div id="hero-donut" style="height: 250px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- jQuery knobs -->
+                    <div class="row-fluid section">
+                        <h4 class="title">Personal EV</h4>
+                        <div class="row-fluid">
+                            <div class="span3">
+                                <input type="text" value="50" class="knob second" data-thickness=".3" data-inputcolor="#333" data-fgcolor="#30a1ec" data-bgcolor="#d4ecfd" data-width="140" />
+                            </div>
+                            <div class="span3">
+                                <input type="text" value="75" class="knob second" data-thickness=".3" data-inputcolor="#333" data-fgcolor="#8ac368" data-bgcolor="#c4e9aa" data-width="140" />
+                            </div>
+                            <div class="span3">
+                                <input type="text" value="35" class="knob second" data-thickness=".3" data-inputcolor="#333" data-fgcolor="#5ba0a3" data-bgcolor="#cef3f5" data-width="140" />
+                            </div>
+                            <div class="span3">
+                                <input type="text" value="85" class="knob second" data-thickness=".3" data-inputcolor="#333" data-fgcolor="#b85e80" data-bgcolor="#f8d2e0" data-width="140" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <p class="last"> Created by <a href="">SVV1</a></p>
+</div>
+
+<!-- scripts for this page -->
+<script src="../asset/chart/js/jquery-latest.js"></script>
+<script src="../asset/chart/js/bootstrap.min.js"></script>
+<script src="../asset/chart/js/jquery-ui-1.10.2.custom.min.js"></script>
+<!-- knob -->
+<script src="../asset/chart/js/jquery.knob.js"></script>
+<!-- flot charts -->
+<script src="../asset/chart/js/jquery.flot.js"></script>
+<script src="../asset/chart/js/jquery.flot.stack.js"></script>
+<script src="../asset/chart/js/jquery.flot.resize.js"></script>
+<!-- morrisjs -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="../asset/chart/js/morris.min.js"></script>
+<!-- call all plugins -->
+<script src="../asset/chart/js/theme.js"></script>
+
+<!-- build the charts -->
+<script type="text/javascript">
+
+    // Morris Bar Chart
+    Morris.Bar({
+        element: 'hero-bar',
+        data: [
+            {device: 'LT', attend: 30},
+            {device: 'YZD', attend: 30},
+            {device: 'DJ', attend: 27},
+            {device: 'LINDA', attend: 29},
+            {device: 'Hebbe', attend: 25},
+            {device: 'Moon', attend: 23}
+        ],
+        xkey: 'device',
+        ykeys: ['attend'],
+        labels: ['attend'],
+        barRatio: 0.4,
+        xLabelMargin: 10,
+        hideHover: 'auto',
+        barColors: ["#3d88ba"]
+    });
+
+
+    // Morris Donut Chart
+    Morris.Donut({
+        element: 'hero-donut',
+        data: [
+            {label: 'Hebbe', value: 25 },
+            {label: 'YZD', value: 40 },
+            {label: 'Sharrie', value: 25 },
+            {label: 'DJ', value: 10 }
+        ],
+        colors: ["#30a1ec", "#76bdee", "#c4dafe"],
+        formatter: function (y) { return y + "%" }
+    });
+
+
+    // Morris Line Chart
+    var tax_data = [
+        {"period": "2014-04", "Plan": 2407, "Actual": 660},
+        {"period": "2014-03", "Plan": 3351, "Actual": 729},
+        {"period": "2014-02", "Plan": 2469, "Actual": 1318},
+        {"period": "2014-01", "Plan": 2246, "Actual": 461},
+        {"period": "2012-12", "Plan": 3171, "Actual": 1676},
+        {"period": "2012-11", "Plan": 2155, "Actual": 681},
+        {"period": "2012-10", "Plan": 1226, "Actual": 620},
+        {"period": "2012-09", "Plan": 2245, "Actual": 500}
+    ];
+    Morris.Line({
+        element: 'hero-graph',
+        data: tax_data,
+        xkey: 'period',
+        xLabels: "month",
+        ykeys: ['Plan', 'Actual'],
+        labels: ['Plan', 'Actual']
+    });
+
+
+
+    // Morris Area Chart
+    Morris.Area({
+        element: 'hero-area',
+        data: [
+            {period: '2010 Q1', BHWS: 2666, Performed_History: null, Predict: 2647},
+            {period: '2010 Q2', BHWS: 2778, Performed_History: 2294, Predict: 2441},
+            {period: '2010 Q3', BHWS: 4912, Performed_History: 1969, Predict: 2501},
+            {period: '2010 Q4', BHWS: 3767, Performed_History: 3597, Predict: 5689},
+            {period: '2011 Q1', BHWS: 6810, Performed_History: 1914, Predict: 2293},
+            {period: '2011 Q2', BHWS: 5670, Performed_History: 4293, Predict: 1881},
+            {period: '2011 Q3', BHWS: 4820, Performed_History: 3795, Predict: 1588},
+            {period: '2011 Q4', BHWS: 15073, Performed_History: 5967, Predict: 5175},
+            {period: '2012 Q1', BHWS: 10687, Performed_History: 4460, Predict: 2028},
+            {period: '2012 Q2', BHWS: 8432, Performed_History: 5713, Predict: 1791}
+        ],
+        xkey: 'period',
+        ykeys: ['BHWS', 'Performed_History', 'Predict'],
+        labels: ['BHWS', 'Performed_History', 'Predict'],
+        lineWidth: 2,
+        hideHover: 'auto',
+        lineColors: ["#81d5d9", "#a6e182", "#67bdf8"]
+    });
+
+
+
+    // Build jQuery Knobs
+    $(".knob").knob();
+
+
+
+    //  jQuery Flot Chart
+    var visits = [[1, 50], [2, 40], [3, 45], [4, 23],[5, 55],[6, 65],[7, 61],[8, 70],[9, 65],[10, 75],[11, 57],[12, 59]];
+    var visitors = [[1, 25], [2, 50], [3, 23], [4, 48],[5, 38],[6, 40],[7, 47],[8, 55],[9, 43],[10,50],[11,47],[12, 39]];
+
+    var plot = $.plot($("#statsChart"),
+        [ { data: visits, label: "Plan3"},
+            { data: visitors, label: "Actual3" }], {
+            series: {
+                lines: { show: true,
+                    lineWidth: 1,
+                    fill: true,
+                    fillColor: { colors: [ { opacity: 0.05 }, { opacity: 0.09 } ] }
+                },
+                points: { show: true,
+                    lineWidth: 2,
+                    radius: 3
+                },
+                shadowSize: 0,
+                stack: true
+            },
+            grid: { hoverable: true,
+                clickable: true,
+                tickColor: "#f9f9f9",
+                borderWidth: 0
+            },
+            legend: {
+                //show: false
+                labelBoxBorderColor: "#fff"
+            },
+            colors: ["#a7b5c5", "#30a0eb"],
+            xaxis: {
+                ticks: [[1, "JAN"], [2, "FEB"], [3, "MAR"], [4,"APR"], [5,"MAY"], [6,"JUN"],
+                    [7,"JUL"], [8,"AUG"], [9,"SEP"], [10,"OCT"], [11,"NOV"], [12,"DEC"]],
+                font: {
+                    size: 12,
+                    family: "Open Sans, Arial",
+                    variant: "small-caps",
+                    color: "#9da3a9"
+                }
+            },
+            yaxis: {
+                ticks:3,
+                tickDecimals: 0,
+                font: {size:12, color: "#9da3a9"}
+            }
+        });
+
+    function showTooltip(x, y, contents) {
+        $('&lt;div id="tooltip">' + contents + '</div>').css( {
+            position: 'absolute',
+            display: 'none',
+            top: y - 30,
+            left: x - 50,
+            color: "#fff",
+            padding: '2px 5px',
+            'border-radius': '6px',
+            'background-color': '#000',
+            opacity: 0.80
+        }).appendTo("body").fadeIn(200);
+    }
+
+    var previousPoint = null;
+    $("#statsChart").bind("plothover", function (event, pos, item) {
+        if (item) {
+            if (previousPoint != item.dataIndex) {
+                previousPoint = item.dataIndex;
+
+                $("#tooltip").remove();
+                var x = item.datapoint[0].toFixed(0),
+                    y = item.datapoint[1].toFixed(0);
+
+                var month = item.series.xaxis.ticks[item.dataIndex].label;
+
+                showTooltip(item.pageX, item.pageY,
+                    item.series.label + " of " + month + ": " + y);
+            }
+        }
+        else {
+            $("#tooltip").remove();
+            previousPoint = null;
+        }
+    });
+</script>
+
+</body>
+</html>

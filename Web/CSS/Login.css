@@ -1,0 +1,49 @@
+body{
+    background-image: url(../PIC/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 1920px 1200px;
+    background-position: 50% 0%;
+}
+h1{
+    text-align: center;
+}
+#OutDiv{
+    position:fixed;
+    top:27%;
+    left:5%;
+    width:40%;
+    height: 252px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#LeftDiv{
+    float:left;
+    width:50%;
+    height:100%;
+    background-color: white;
+    border-right: 2px solid blue;
+}
+#RightDiv{
+    float:left;
+    width:50%;
+    height: 100%;
+    background-color: white;
+}
+
+span{
+    width: 100%;
+    display:block;
+    text-align: center;
+}
+
+#LeftSpan,#RightSpan{
+    border-right: 1px solid white;
+    background-color: #2aabd2;
+}
+#LeftList, #RightList{
+    overflow: auto;
+    height:206px;
+    width:100%;
+    background-color: white;
+}
+

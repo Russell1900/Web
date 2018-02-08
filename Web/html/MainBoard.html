@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+	<title>Online TAM</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../CSS/MainBoard.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/TaskBoard.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/ActionBoard.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/AndoBoard.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/MarkBoard.css">
+	<script rel="../JS/jquery-3.2.1.min.js"></script>
+	<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="../JS/TaskBoard.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<h1>Online TAM System</h1>
+	<div id="TopDiv">
+		<table id="TopTable" style="width:100%" align="left">
+			<tr>
+				<th style="width:16%">Team:</th><td id="TeamName"  style="width:16%"></td><th style="width:16%">Date:</th><td id="YamDate" style="width:16%"></td><th style="width:16%">RESP:</th><td id="TamResp" style="width:16%"></td>
+			</tr>
+		</table>
+		<HR style="border: 1px solid rgb(63,72,204);">
+	</div>
+	<div id="MidDiv">
+		<div id="LeftDiv">
+			<table id="TaskTopTable" class="InnerTable">
+				<colgroup>
+					<col style="width:10%">
+					<col span="6" style="width:15%;" class="InnerTable">
+					<col class="InnerTable">
+				</colgroup>
+				<tr class="InnerTable">
+					<th>Author</th><th>Assigned</th><th>Dev</th><th>Review</th><th>Rework</th><th>Done</th><th>IssueLog</th>
+					<th><button id="addTask" onclick="addTaskRow()">+</button></th>
+				</tr>
+			</table>
+			<div id="LeftTalbeDiv">
+				<table id="TaskTable" class="InnerTable">
+					<colgroup>
+						<col id="TaskAuthorCol">
+						<col id="TaskAssignedCol" class="TaskInformationCol">
+						<col id="TaskDevCol" class="TaskInformationCol">
+						<col id="TaskReviewCol" class="TaskInformationCol">
+						<col id="TaskReworkCol" class="TaskInformationCol">
+						<col id="TaskDoneCol" class="TaskInformationCol">
+						<col id="TaskIssueLogCol" class="TaskInformationCol">
+						<col id="TaskDelCol">
+					</colgroup>
+				</table>
+			</div>
+		</div>
+		<div id="RightTopDiv">
+			<table id="ActionTopTable" class="InnerTable">
+				<colgroup>
+					<col style="width:5%" class="InnerTable">
+					<col style="width:58.5%" class="InnerTable">
+					<col style="width:26.5%" class="InnerTable">
+					<col style="width:10%" class="InnerTable">
+					<col class="InnerTable">
+				</colgroup>
+				<tr class="InnerTable">
+					<th>Ref</th><th>Action</th><th>Target Date</th><th>PDCA</th><th><button id="addAction" onclick="addActionRow()">+</button></th>
+				</tr>
+			</table>
+			<div id="RightTopTableDiv">
+				<table id="ActionTable">
+					<colgroup>
+						<col id="ActionRefCol" class="ActionTableCol">
+						<col id="ActionInfoCol" class="ActionTableCol">
+						<col id="ActionTargetDateCol" class="ActionTableCol">
+						<col id="ActionPDCACol" class="ActionTableCol">
+						<col id="ActionDelCol" class="ActionTableCol">
+					</colgroup>
+				</table>
+			</div>
+		</div>
+		<div id="RightBottomDiv">
+			<table id="AndoTopTable" class="InnerTable">
+				<colgroup>
+					<col style="width:5%" class="InnerTable">
+					<col style="width:58.5%" class="InnerTable">
+					<col style="width:26.5%" class="InnerTable">
+					<col style="width:10%" class="InnerTable">
+					<col class="InnerTable">
+				</colgroup>
+				<tr class="InnerTable">
+					<th>Ref</th><th>Ando</th><th>Target Date</th><th>PDCA</th><th><button id="addAndo" onclick="addAndoRow()">+</button></th>
+				</tr>
+			</table>
+			<div id="RightBottomTableDiv">
+				<table id="AndoTable">
+					<colgroup>
+						<col id="AndoRefCol" class="AndoTableCol">
+						<col id="AndoInfoCol" class="AndoTableCol">
+						<col id="AndoTargetDateCol" class="AndoTableCol">
+						<col id="AndoPDCACol" class="AndoTableCol">
+						<col id="AndoDelCol" class="AndoTableCol">
+					</colgroup>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div id="BottomDiv">
+		<table id="MarkTopTable" class="InnerTable">
+			<tr class="InnerTable">
+				<th style="width:100%;" class="InnerTable">Mark</th><th class="InnerTable"><button id="addMark" onclick="addMarkRow()">+</button></th>
+			</tr>
+		</table>
+		<div id="BottomTableDiv">
+			<table id="MarkTable">
+				<colgroup>
+					<col id="MarkRefCol" class="MarkTableCol">
+					<col id="MarkInfoCol" class="MarkTableCol">
+					<col id="MarkDelButtonCol" class="MarkTableCol">
+				</colgroup>
+			</table>
+		</div>
+	</div>
+	<div id="StatusBar" style="text-align: center; color: white;background-color: #1b6d85">
+		StatusBar
+	</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+#AndoTable{
+    border:1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+.AndoTableTr{
+    border:1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+.AndoTableCol{
+    border:1px solid black;
+    border-collapse: collapse;
+}
+#AndoRefCol{
+    width:5%;
+}
+#AndoInfoCol{
+    width: 58.5%;
+}
+#AndoTargetDateCol{
+    width: 25.5%;
+}
+#AndoPDCACol{
+    width: 10%;
+}
+.AndoTextInput{
+    width: 100%;
+}
+.AndoDateInput{
+    width:100%;
+    font-size: 80%;
+}
+.AndoPDCFSelect{
+    font-size: 80%;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Online - TAM</title>
+<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../CSS/style_l.css">
+<link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
+<script type="text/javascript">
+function newLocation()
+{
+window.location="Admin.html"
+}
+
+function login()
+{
+var AdminPW = document.getElementById("PW");
+if (AdminPW.value=="admin")
+{
+   newLocation()  
+}
+else
+alert("Invalid password try again");
+}
+
+</script>
+</head>
+<body>
+<div id="loginpanelwrap">
+  	
+	<div class="loginheader">
+    <div class="logintitle"><a href="#">Online TAM</a></div>
+    </div>
+
+    <div class="loginform">
+        
+        <div class="loginform_row">
+        <label>Username:</label>
+        <input type="text" class="loginform_input" name="" value="Admin" />
+        </div>
+        <div class="loginform_row">
+        <label>Password:</label>
+        <input type="password" id="PW" class="loginform_input" name="PW" />
+        </div>
+        <div class="loginform_row">
+		<input id="password1" type="submit" class="loginform_submit" onclick="login()" value="Login" />		
+        </div>
+		</div>
+        <div class="clear"></div>
+    </div>
+ 
+
+</div>
+
+    	
+</body>
+</html>
